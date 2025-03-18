@@ -1,20 +1,39 @@
 import pygame
 import constants as c
+from player import Player
 
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
+    pygame.display.set_caption("Triangle Game")
     clock = pygame.time.Clock()
-    dt = 0
-    while True:
-        screen.fill((0, 0, 0))
-        pygame.display.flip()
-        update_time = clock.tick(60)
-        dt = update_time / 1000
+
+    # Create player outside the game loop
+    x = c.SCREEN_WIDTH / 2
+    y = c.SCREEN_HEIGHT / 2
+    player = Player(x, y)
+
+    running = True
+    while running:
+        # Handle events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                return
+                running = False
+
+        # Get time delta
+        dt = clock.tick(60) / 1000
+
+        # Clear screen
+        screen.fill((0, 0, 0))
+
+        # Draw player
+        player.draw(screen)
+
+        # Update display
+        pygame.display.flip()
+
+    pygame.quit()
 
 
 if __name__ == "__main__":

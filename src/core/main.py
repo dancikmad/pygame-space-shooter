@@ -1,11 +1,11 @@
 import sys
 
+import src.core.constants as c
 import pygame
 
-import constants as c
-from asteroid import Asteroid
-from asteroidfield import AsteroidField
-from player import Player, Shot
+from src.entities.asteroid import Asteroid
+from src.entities.asteroidfield import AsteroidField
+from src.entities.player import Player, Shot
 
 
 def main():

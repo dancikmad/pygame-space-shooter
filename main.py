@@ -1,10 +1,11 @@
 import sys
+
 import pygame
-from pygame.display import update
+
 import constants as c
-from player import Player, Shot
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from player import Player, Shot
 
 
 def main():

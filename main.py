@@ -3,9 +3,16 @@ import constants as c
 
 
 def main():
-    print("Starting Asteroids!")
-    print("Screen width: {0}".format(c.SCREEN_WIDTH))
-    print("Screen height: {0}".format(c.SCREEN_HEIGHT))
+    pygame.init()
+    screen = pygame.display.set_mode((c.SCREEN_WIDTH, c.SCREEN_HEIGHT))
+
+    while True:
+        screen.fill((0, 0, 0))
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
 
 
 if __name__ == "__main__":
